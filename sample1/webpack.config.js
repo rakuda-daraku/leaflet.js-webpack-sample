@@ -8,18 +8,33 @@ const config = {
     filename: 'app.js',
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      include: path.resolve(__dirname, 'src'),
-      use: [{
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            'es2015'
-          ],
-        },
-      }],
-    }],
+    rules: [
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, 'src'),
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              'es2015'
+            ],
+          },
+        }],
+      },
+      {
+        test: /\.css$/,
+        use: [
+            'style-loader',
+            'css-loader'
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+            'file-loader'
+        ]
+      }
+    ],
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
