@@ -1,4 +1,5 @@
-let L = require('leaflet');
+import L from 'leaflet';
+import '../node_modules/leaflet/dist/leaflet.css'
 
 let map = L.map('map').setView([43.067656, 141.350857], 10);
 
